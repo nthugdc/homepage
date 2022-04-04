@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../client";
 
+
 export default function AllPosts() {
   const [allPostsData, setAllPosts] = useState<SanityDocument | null>(null);
 
@@ -10,15 +11,15 @@ export default function AllPosts() {
     sanityClient
       .fetch(
         `*[_type == "post"]{
-        title,
-        slug,
-        mainImage{
-          asset->{
-          _id,
-          url
-        }
-      }
-    }`
+            title,
+            slug,
+            mainImage{
+                asset->{
+                _id,
+                url
+                }
+            }
+        }`
       )
       .then((data) => setAllPosts(data))
       .catch(console.error);
