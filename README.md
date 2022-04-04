@@ -6,7 +6,7 @@ This homepage is set up using the npm package `create-react-app`, with the TypeS
 
 ## For content uploaders
 
-Use the [Sanity Studio dashboard](https://nthugdc.sanity.studio) make posts.
+Use the [Sanity Studio dashboard](https://nthugdc.sanity.studio) make posts. Contact the current administrator to get added to the Sanity project.
 
 ## For developers
 
