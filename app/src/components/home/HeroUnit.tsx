@@ -4,7 +4,7 @@ class HeroUnitProps implements PropsWithoutRef<HeroUnitProps> {
 }
 export default function HeroUnit(props : HeroUnitProps) {
     return (
-        <div className="flex flex-col justify-center items-center w-full h-2/3 bg-gradient-to-b from-cyan-500 to-transparent">
+        <div className="flex flex-col justify-center items-center w-full h-[70vh] bg-gradient-to-b from-cyan-500 to-transparent">
             
 
             <img className="h-2/3" src={props.imgSrc}>

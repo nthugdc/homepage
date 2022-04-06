@@ -4,7 +4,6 @@ import sanityClient from "../client";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { SanityDocument } from "@sanity/client";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source : SanityImageSource) {
@@ -12,7 +11,7 @@ function urlFor(source : SanityImageSource) {
 }
 
 export default function OnePost() {
-  const [postData, setPostData] = useState<SanityDocument | null>(null);
+  const [postData, setPostData] = useState<any>(null);
   const { slug } = useParams();
 
   useEffect(() => {

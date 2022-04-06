@@ -5,12 +5,12 @@ import sanityClient from "../client";
 
 
 export default function AllPosts() {
-  const [allPostsData, setAllPosts] = useState<SanityDocument | null>(null);
+  const [allPostsData, setAllPosts] = useState<any>(null);
 
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "post"]{
+        `*[_type == "article"]{
             title,
             slug,
             mainImage{
