@@ -3,12 +3,18 @@ import sanityClient from "../../client";
 import heroImage from "./heroUnit.png";
 import HeroUnit from "./HeroUnit";
 
-export default function Home() {
+export default function HomePage() {
     return (
         <div>
             <HeroUnit imgSrc={heroImage}></HeroUnit>
             <div className={"container text-center"}>Under construction...</div>
             
+            <div className="h-[30vh] w-full
+             bg-slate-600">
+                 <article className="container prose lg:prose-xl text-center text-cyan-100 align-middle">
+                    Test
+                 </article>
+            </div>
             {/* <article className="prose lg:prose-xl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non ligula ut mi ultricies sodales. Morbi blandit pharetra interdum. Aliquam sollicitudin a lacus quis fringilla. Proin vel consequat ante, nec dictum lacus. Morbi suscipit augue sed blandit faucibus. Pellentesque sit amet erat ut nibh venenatis fringilla quis at sem. Nam et lacinia nunc. Curabitur molestie nulla orci, ac egestas nunc viverra quis. Nam sed aliquam quam, eget finibus diam. Nullam felis odio, porta a auctor ac, aliquam pretium nulla. Vivamus commodo mauris purus, vel vestibulum erat placerat et.
 
