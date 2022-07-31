@@ -24,6 +24,7 @@ export default function AllPosts() {
       .then((data) => setAllPosts(data))
       .catch(console.error);
   }, []);
+
   return (
     <div>
       <h2>Blog Posts</h2>
@@ -31,7 +32,8 @@ export default function AllPosts() {
       <div>
         {allPostsData &&
           allPostsData.map((post : SanityDocument, index : number) => (
-            <Link to={"/" + post.slug.current} key={post.slug.current}>
+            
+            <Link to={"/articles/" + post.slug.current} key={post.slug.current}>
               <span key={index}>
                 <img src={post.mainImage ? post.mainImage.asset.url : ""} alt="" />
                 <span>

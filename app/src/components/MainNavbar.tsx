@@ -20,9 +20,9 @@ export default function MainNavbar({eventKey = 1}) {
         case "/articles": eventKey = 5; break;
     }
     return (
-        <Navbar fixed="top" collapseOnSelect expand="md" bg="dark" variant="dark">
+        <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="#home"><b>NTHUGDC</b></Navbar.Brand>
+            <Navbar.Brand href="/"><b>NTHUGDC</b></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto" activeKey={eventKey}>
