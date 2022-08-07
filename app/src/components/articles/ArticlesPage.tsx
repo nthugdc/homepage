@@ -4,14 +4,9 @@ import OnePost from "../OnePost";
 export default function ArticlesPage(){
     // TODO
     return (
-        <div>
-            <button className="btn">Button</button>
-            <div className={"container text-center"}>Under construction...</div>
+        <div className = "container mx-auto px-6 md:px-4">
             <AllPosts></AllPosts>
-            <div className={"container text-center"}>Under construction...</div>
-            <button className="btn">Button</button>
-            
-
         </div>
+            
     );
 }
