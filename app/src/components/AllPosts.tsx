@@ -7,6 +7,23 @@ import {Card, Button} from "react-bootstrap";
 export default function AllPosts() {
   const [allPostsData, setAllPosts] = useState<any>(null);
 
+  // preview content function
+  const previewContent = (body: any) => {
+    let content = body[0].children[0].text;
+    for(let i = 1; i < body.length; i++) {
+      if(body[i].children){
+        if(body[i].children[0].text){
+          content += " " + body[i].children[0].text;
+        }
+        
+      }
+      
+    }
+    return content;
+  
+  }
+
+
   useEffect(() => {
     sanityClient.fetch(`*[_type == "article"]{...}`)
     .then((data) => console.log(data))
@@ -43,7 +60,7 @@ export default function AllPosts() {
   }, []);
 
   return (
-    <div className="py-6 justify-center">
+    <div className="py-6 grid h-screen place-items-center ">
 
       {/* 
           Note:
@@ -56,8 +73,8 @@ export default function AllPosts() {
      
         {allPostsData &&
           allPostsData.map((post : SanityDocument, index : number) => (
-            <div className="mb-12" key={index}>
-                <Link className="flex flex-col md:flex-row w-full lg:w-10/12 border-stone-100" to={"/articles/" + post.slug.current} key={post.slug.current}>
+            
+                <Link className="flex flex-col md:flex-row w-full lg:w-10/12 border-stone-100 "  to={"/articles/" + post.slug.current} key={post.slug.current}>
 
 
 
@@ -75,16 +92,19 @@ export default function AllPosts() {
 
                     </div>
 
-                    <div className="flex-1"> {/*  Right Part */}
+                    <div className="flex-1 "> {/*  Right Part */}
                                 <div> {/*  Author */}
 
                                 </div>
 
                                 <div> {/*  Title */}
-                                  <h2 className="text-2xl font-semibold mb-1">Writing With Markdown</h2>
+                                  <h2 className="text-2xl font-semibold mb-1">{post.title}</h2>
                                 </div>
                                 <div> {/*  Content Preview */}
-                                <p className="text-base font-light text-gray-600 mb-4">Learn how to use Markdown to write blog posts. Understand front-matter and how it is used in templates.</p>
+                                <p className="text-base font-light text-gray-600 mb-4">
+                                  {previewContent(post.body)}
+                                  
+                                  </p>
                                 </div>
                                 <div> {/*  Tags */}
                                 </div>
@@ -102,7 +122,6 @@ export default function AllPosts() {
                                 
                                 alt="https://i.imgur.com/PINChNm.png" /></figure> */}
                 </Link>
-            </div>
 
 
 

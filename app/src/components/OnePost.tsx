@@ -39,8 +39,8 @@ export default function OnePost() {
   if (!postData) return <div>Loading...</div>;
 
   return (
-    <div>
-      <div>
+    <div className = "container mx-auto px-6 md:px-6 lg:px-32 xl:px-48">
+      <div className = "py-6 grid h-screen place-items-center">
         <h2>{postData.title}</h2>
         <div>
           <img
