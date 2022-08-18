@@ -7,6 +7,8 @@ import GamesPage from "./components/games/GamesPage";
 import HomePage from "./components/home/HomePage";
 import MainNavbar from "./components/MainNavbar";
 import OnePost from "./components/OnePost";
+// app.ss
+import './App.css';
 
 function App() {
   return (

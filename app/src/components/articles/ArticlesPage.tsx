@@ -1,7 +1,7 @@
 import React from "react";
 import AllPosts from "../AllPosts";
 import OnePost from "../OnePost";
-import AnimatedText from "./AnimatedText";
+import AnimatedText from "../AnimatedText";
 
 export default function ArticlesPage(){
     // TODO
