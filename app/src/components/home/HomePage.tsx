@@ -22,19 +22,20 @@ export default function HomePage() {
 
     useEffect(() => {
         // gsap animation https://codepen.io/creativeocean/pen/qBbBLyB
+        ScrollTrigger.config({autoRefreshEvents: "DOMContentLoaded,load,visibilitychange"});
         gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
         gsap.set('.scrollDist', {width:'100%', height:'200%'})
         gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
-            .fromTo('.aqua', {x:100},{x:140}, 0)
+            // .fromTo('.aqua', {x:100},{x:140}, 0)
             .fromTo('.aqua', {y:120},{y:-250}, 0)
             .fromTo('.cloudmask', {y:345},{y:120}, 0)
             .fromTo('.mask', {y:100},{y:-800}, 0)
-            .fromTo('.irys', {x:-100},{x:0}, 0)
+            // .fromTo('.irys', {x:-100},{x:0}, 0)
             .fromTo('.irys', {y:300},{y:-220}, 0)
     }, []);
 
     return (
-     <>
+     <div id="viewport">
                 <div className="scrollDist"></div>
                 <div className="mainscroll">
 
@@ -54,7 +55,7 @@ export default function HomePage() {
                         </mask>
                         <rect fill="#000" width="100%" height="801" y="799" />
 
-                        <image className="aqua" href="images/aqua.png" xlinkHref="images/aqua.png"  width="1300" />
+                        <image className="aqua" href="images/aqua_smaller.png" xlinkHref="images/aqua_smaller.png"  width="1300" />
                         <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center" fill="#fff" x="50%" y={textY}>NTHUGDC</text>
                         <text className="HomeTitle text-2xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y={textY + 60}>清大遊創社</text>
                  
@@ -71,6 +72,6 @@ export default function HomePage() {
                     
                 </svg>
             </div>
-            </>
+            </div>
     );
 }
