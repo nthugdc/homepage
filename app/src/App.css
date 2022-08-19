@@ -51,7 +51,6 @@ body, html {
   text-align: center;
   margin: 0; */
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  height: 1200px;
 	/* width: 100vw; */
 	/* overscroll-behavior: none; */
 	/* overflow: hidden !important; */
@@ -62,7 +61,7 @@ body, html {
 	/* position: fixed; */
 	overflow-x: hidden;
 	overflow-y: scroll;
-	height: 100%;
+	/* height: 100%; */
 	-webkit-overscroll-behavior: none;
 	overscroll-behavior: none;
 	-webkit-overflow-scrolling: touch;
