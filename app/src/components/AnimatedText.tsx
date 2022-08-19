@@ -12,7 +12,7 @@ export default function AnimatedText(props:AnimatedText){
 
     return (
 
-            <p className="anip ">
+            <p className="anip py-24">
                 
                 <span className="anispan text-7xl md:text-[90px] lg:text-[100px] xl:text-[130px]">
                     {props.title}

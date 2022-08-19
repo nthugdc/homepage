@@ -51,8 +51,7 @@ body, html {
   text-align: center;
   margin: 0; */
   font-family: 'Montserrat', sans-serif;
-  height:1200px;
-  
+  height: 1200px;
 }
 
 .mainscroll{
@@ -79,7 +78,9 @@ body, html {
   margin: 0 auto;
   border: 4px double rgba(255, 255, 255, 0.25);
   border-width: 4px 0;
-  padding: 5em 0em;
+  /* padding: 5em 0em; */
+  /* padding-top: 150px; */
+  font-family: 'Montserrat', sans-serif;
   /* position: absolute; */
   /* top: 18%;
   left: 50%;
@@ -117,6 +118,6 @@ body, html {
     background-position: 0% 0%;
   }
   100% {
-    background-position: 10000% 0%;
+    background-position: 1000% 0%;
   }
 }
