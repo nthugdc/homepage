@@ -25,42 +25,33 @@ export default function HomePage() {
         gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
             gsap.set('.scrollDist', {width:'100%', height:'100%'})
             gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
-                // .fromTo('.aqua', {x:100},{x:140}, 0)
+                 .fromTo('.aqua', {x:50},{x:140}, 0)
                 .fromTo('.aqua', {y:120},{y:-250}, 0)
                 .fromTo('.cloudmask', {y:345},{y:120}, 0)
                 .fromTo('.mask', {y:100},{y:-800}, 0)
                 // .fromTo('.irys', {x:-100},{x:0}, 0)
                 .fromTo('.irys', {y:300},{y:-220}, 0)
 
-        // mm.add("(min-width: 768px)", () => {
+        mm.add("(min-width: 768px)", () => {
 
-        //     gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
-        //     gsap.set('.scrollDist', {width:'100%', height:'100%'})
-        //     gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
-        //         // .fromTo('.aqua', {x:100},{x:140}, 0)
-        //         .fromTo('.aqua', {y:120},{y:-250}, 0)
-        //         .fromTo('.cloudmask', {y:345},{y:120}, 0)
-        //         .fromTo('.mask', {y:100},{y:-800}, 0)
-        //         // .fromTo('.irys', {x:-100},{x:0}, 0)
-        //         .fromTo('.irys', {y:300},{y:-220}, 0)
+            gsap.globalTimeline.play();
+                return () => { // make sure to clean up event listeners in the cleanup function!
+                    gsap.matchMediaRefresh();
+                  }
+        });
 
-        //         return () => { // make sure to clean up event listeners in the cleanup function!
-        //             gsap.matchMediaRefresh();
-        //           }
-        // });
-
-        // mm.add("(max-width: 767px", () => {
-        //     // mobile setup code here...
-        //     gsap.globalTimeline.pause();
-        //     // kill gsap
-        //     // gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
-        //     // gsap.set('.scrollDist', {width:'100%', height:'200%'})
-        //     // gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
-        //         // .fromTo('.aqua', {x:100},{x:140}, 0)
-        //         return () => { // make sure to clean up event listeners in the cleanup function!
-        //             gsap.matchMediaRefresh();
-        //           }
-        // });
+        mm.add("(max-width: 767px", () => {
+            // mobile setup code here...
+            gsap.globalTimeline.pause();
+            // kill gsap
+            // gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
+            // gsap.set('.scrollDist', {width:'100%', height:'200%'})
+            // gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
+                // .fromTo('.aqua', {x:100},{x:140}, 0)
+                return () => { // make sure to clean up event listeners in the cleanup function!
+                    gsap.matchMediaRefresh();
+                  }
+        });
 
       
        
@@ -89,14 +80,14 @@ export default function HomePage() {
                         </mask>
                         <rect fill="#000" width="100%" height="801" y="799" />
 
-                        <image className="aqua" href="images/aqua_smaller.png" xlinkHref="images/aqua_smaller.png"  width="1300" />
+                        <image className="aqua" href="images/aqua_smaller.png" xlinkHref="images/aqua_smaller.png"  width="1450" />
                         <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center" fill="#fff" x="50%" y={textY}>NTHUGDC</text>
                         <text className="HomeTitle text-2xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y={textY + 60}>清大遊創社</text>
                  
                         <g mask="url(#m)">
                         
                             <rect fill="#fff" width="100%" height="100%" />     
-                                <image className="irys hidden md:block" href="images/16.jpg" xlinkHref="images/16.jpg" width="1300"  /> 
+                                <image className="irys " href="images/16.jpg" xlinkHref="images/16.jpg" width="1300"  /> 
                                 <a href="https://discord.gg/pw5kc5jWFa" target="_blank" rel="noreferrer">
                                     <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center"  x="50%" y={textY} fill="#fff" href="https://discord.gg/pw5kc5jWFa">JOIN US ♥</text>
                                 </a>
