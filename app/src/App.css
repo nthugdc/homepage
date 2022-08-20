@@ -54,6 +54,9 @@ body, html {
 	/* width: 100vw; */
 	/* overscroll-behavior: none; */
 	/* overflow: hidden !important; */
+  -webkit-overscroll-behavior: none;
+	overscroll-behavior: none;
+	-webkit-overflow-scrolling: touch;
 }
 
 /* https://greensock.com/docs/v3/HelperFunctions#scrollResize */
@@ -62,9 +65,7 @@ body, html {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	/* height: 100%; */
-	-webkit-overscroll-behavior: none;
-	overscroll-behavior: none;
-	-webkit-overflow-scrolling: touch;
+	
 }
 
 .mainscroll{
