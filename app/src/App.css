@@ -54,17 +54,21 @@ body, html {
 	/* width: 100vw; */
 	/* overscroll-behavior: none; */
 	/* overflow: hidden !important; */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+ 
 }
 
 /* https://greensock.com/docs/v3/HelperFunctions#scrollResize */
 #viewport {
-	/* position: fixed; */
+	position: fixed;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: hidden;
 	/* height: 100%; */
-	-webkit-overscroll-behavior: none;
+	/* -webkit-overscroll-behavior: none;
 	overscroll-behavior: none;
-	-webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch; */
+    
 }
 
 .mainscroll{
