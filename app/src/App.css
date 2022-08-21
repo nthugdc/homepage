@@ -37,7 +37,7 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&family=Roboto:wght@700&display=swap');
 
 body {
   /* font: 400 1em/1.5 "Neuton"; */
@@ -58,7 +58,12 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-
+.preview{
+  display: inline-block; /* for inline elements e.g. span, strong, em etc */
+  text-overflow: ellipsis;
+  width: calc(80%); /* The trick is here! */
+  max-height: 200px;
+}
 
 
 .anip {

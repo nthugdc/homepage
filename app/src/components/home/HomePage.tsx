@@ -93,13 +93,13 @@ export default function HomePage() {
                         
                         <image className="aqua" href="images/aqua_smaller.png"  width="1300" />
                         <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center" fill="#fff" x="50%" y="400">NTHUGDC</text>
-                        <text className="HomeTitle text-2xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y="460">清大遊創社</text>
+                        <text className="HomeTitleTC text-2xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y="460">清大遊創社</text>
                  
                         <g clipPath="url(#m)">
                                
                                 <image className="irys" href="images/16.jpg" width="1300"/> 
                                 <a href="https://discord.gg/pw5kc5jWFa" target="_blank" rel="noreferrer">
-                                    <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center"  x="600" y="400" fill="#fff" href="https://discord.gg/pw5kc5jWFa">JOIN US ❤️</text>
+                                    <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center"  x="600" y="400" fill="#fff" href="https://discord.gg/pw5kc5jWFa">JOIN US ♥</text>
                                 </a>
 
                         </g>

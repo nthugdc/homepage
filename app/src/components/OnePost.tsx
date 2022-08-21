@@ -27,6 +27,7 @@ export default function OnePost() {
              }
            },
          body,
+         author,
         "name": author->name,
         "authorImage": author->image
        }`,
@@ -39,13 +40,13 @@ export default function OnePost() {
   if (!postData) return <div>Loading...</div>;
 
   return (
-    <div className = "container mx-auto px-6 md:px-6 lg:px-32 xl:px-48">
+    <div className = "container mx-auto px-6 md:px-6 lg:px-32 xl:px-48 bg-white">
       <div className = "py-6 grid h-screen place-items-center">
-        <h2>{postData.title}</h2>
+        <h1 className="">{postData.title}</h1>
         <div>
           <img
             src={postData.authorImage ? urlFor(postData.authorImage).width(100).url() : ""}
-            alt="Author is Kap"
+            alt="Author Unknown"
           />
           <h4>{postData.name}</h4>
         </div>
