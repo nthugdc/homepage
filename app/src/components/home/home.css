@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@700&display=swap');
 
 body {
     /* font: 400 1em/1.5 "Neuton"; */
@@ -7,10 +7,12 @@ body {
     /* color: rgba(255, 255, 255, 0.25);
     text-align: center;
     margin: 0; */
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    /* font-family: 'Microsoft JhengHei', 'Montserrat', Arial, Helvetica, sans-serif; */
       /* width: 100vw; */
       /* overscroll-behavior: none; */
       /* overflow: hidden !important; */
+      font-family: 'Montserrat', 'Roboto', 'Noto Sans TC', sans-serif;
+    
     -webkit-overscroll-behavior: none;
       overscroll-behavior: none;
       -webkit-overflow-scrolling: touch;
@@ -34,7 +36,7 @@ body {
     text-align:center;
   }
   .HomeTitle{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Roboto', 'Noto Sans TC', sans-serif;
     font-weight: bold;
     
     text-anchor:middle
