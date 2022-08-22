@@ -11,7 +11,12 @@ function urlFor(source : SanityImageSource) {
   return builder.image(source);
 }
 
-export default function AllPosts() {
+interface AllPostsProps {
+  category: string;
+}
+
+
+export default function AllPosts(props:AllPostsProps = {category: ""}) {
   const [allPostsData, setAllPosts] = useState<any>(null);
 
   // preview content function
@@ -23,7 +28,7 @@ export default function AllPosts() {
         if(body[i].children[0].text){
 
           let newContent = content + body[i].children[0].text;
-          if(newContent.length > 150){
+          if(newContent.length > 500){
             break;
           }else{
             content = newContent;
@@ -39,17 +44,29 @@ export default function AllPosts() {
 
 
   useEffect(() => {
-    sanityClient.fetch(`*[_type == "article"]{...}`)
-    .then((data) => console.log(data))
+    
+    
+    sanityClient.fetch(`*[_type == "article"]{...}`).then((data) => console.log(data))
  
-
+    //https://www.sanity.io/docs/query-cheat-sheet
+    let categoryQuery = " in categories[]->title";
+    if(props.category === ""){
+      categoryQuery = "true";
+    }
+    console.log(props.category);
+    console.log(props.category + categoryQuery);
     sanityClient
       .fetch(
-         `*[_type == "article"]{
+         `*[_type == "article" && ${props.category + categoryQuery}] | order(_createdAt desc){
             title,
             slug,
             author,
             body,
+            _createdAt,
+            categories[] -> {
+              title,
+              slug
+            },
             "name": author->name,
             "authorImage": author->image,
             mainImage{
@@ -58,6 +75,7 @@ export default function AllPosts() {
                 url
                 }
             }
+
         }`
         // `*[_type == "article"]{
         //     title,
@@ -72,11 +90,12 @@ export default function AllPosts() {
         // }`
       )
       .then((data) => setAllPosts(data))
+      
       .catch(console.error);
   }, []);
 
   return (
-    <div className="py-6 grid h-screen place-items-center ">
+    <div className="py-6 grid min-h-[800px] h-max justify-items-center items-start">
 
       {/* 
           Note:
@@ -92,12 +111,12 @@ export default function AllPosts() {
         {allPostsData &&
           allPostsData.map((post : SanityDocument, index : number) => (
             
-                <Link className="flex flex-col md:flex-row w-full lg:w-10/12 border-stone-100 my-3"  to={"/articles/" + post.slug.current} key={post.slug.current}>
+                <Link className="flex flex-col md:flex-row w-full  border-stone-100 my-3 "  to={"/articles/" + post.slug.current} key={post.slug.current}>
 
 
 
-                    <div className="md:mr-4 mb-2 md:mb-0 md:w-4/12"> {/*  Left Part */}
-                              <img className="w-{640} h-{360} object-cover rounded mb-3 hover:opacity-70 transition duration-300 ease-in-out" src={post.mainImage ? post.mainImage.asset.url : ""} 
+                    <div className="md:mr-4 mb-2 md:mb-0 md:w-4/12  h-full"> {/*  Left Part */}
+                              <img className="object-cover h-56 border border-black  w-96 rounded mb-3 hover:opacity-70 transition duration-300 ease-in-out" src={post.mainImage ? post.mainImage.asset.url : ""} 
                 
                                 onError={({ currentTarget }) => {
                                   currentTarget.onerror = null; // prevents looping
@@ -110,15 +129,16 @@ export default function AllPosts() {
 
                     </div>
 
-                    <div className="preview flex-1 "> {/*  Right Part */}
+                    <div className="preview flex-1 text-ellipsis  overflow-clip"> {/*  Right Part */}
                                 
                                   
                                 <div> {/*  Title */}
                                   <h2 className="text-2xl font-bold my-1 ">{post.title}</h2>
+                                  
                                 </div>
-                                <div className="place-self-end flex item-center place-items-center w-9  my-2 "> {/*  Author */}
+                                <div className="place-self-end flex item-center place-items-center  my-2 "> {/*  Author */}
 
-                                  <img className="border-white border-2 rounded-full object-cover mr-2 "
+                                  <img className="border-white border-2 rounded-full object-cover mr-2 w-9 "
                                       src={post.authorImage ? urlFor(post.authorImage).width(100).url() : ""}
                                       alt=""
                                       onError={({ currentTarget }) => {
@@ -129,17 +149,20 @@ export default function AllPosts() {
                                     />
                                     
                                     <h5 className="font-semibold">{post.name}</h5>
+                                    
                                   </div>
+                                  
 
 
                                 <div> {/*  Content Preview */}
-                                <p className="preview text-base font-light text-gray-600 mb-4 ">
+                                <p className="preview text-base font-light text-gray-600 mb-4">
                                   {previewContent(post.body)}
                                   
                                   </p>
                                 </div>
-
+                                        
                                 <div> {/*  Tags */}
+                                
                                 </div>
 
                                 

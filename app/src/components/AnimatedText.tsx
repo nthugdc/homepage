@@ -1,12 +1,12 @@
 import React from "react";
 
 
-interface AnimatedText {
+interface AnimatedTextProps {
     title: string;
 }
 
 
-export default function AnimatedText(props:AnimatedText){
+export default function AnimatedText(props:AnimatedTextProps){
     // props: title
 
 

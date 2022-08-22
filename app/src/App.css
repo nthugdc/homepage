@@ -50,12 +50,10 @@ body {
   text-align: center;
   margin: 0; */
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    /* width: 100vw; */
+    
     /* overscroll-behavior: none; */
     /* overflow: hidden !important; */
-  -webkit-overscroll-behavior: none;
-    overscroll-behavior: none;
-    -webkit-overflow-scrolling: touch;
+
 }
 
 .preview{

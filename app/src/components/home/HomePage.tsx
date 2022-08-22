@@ -30,52 +30,17 @@ export default function HomePage() {
 
         let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
         gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
-        gsap.set('.scrollDist', {width:'100%', height:'100%'})
-        gsap.timeline({stagger: 0.5,scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
-        .fromTo('.aqua', {x:110},{x:200}, 0)
-        .fromTo('.aqua', {y:120},{y:-250}, 0)
-        .fromTo('.mask', {y:400},{y:-800}, 0)
-        .fromTo('.irys', {x:-100},{x:0}, 0)
-        .fromTo('.irys', {y:300},{y:-220}, 0)
-        // if(isSafari){
-            
+            gsap.set('.scrollDist', {width:'100%', height:'100%'})
+            gsap.timeline({stagger: 0.5,scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
+            .fromTo('.aqua', {x:110},{x:200}, 0)
+            .fromTo('.aqua', {y:120},{y:-250}, 0)
+            .fromTo('.mask', {y:400},{y:-800}, 0)
+            .fromTo('.irys', {x:-100},{x:0}, 0)
+            .fromTo('.irys', {y:300},{y:-220}, 0)
 
-        //     gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
-        //     .fromTo('.aqua', {x:120},{x:120}, 0)
-        //     .fromTo('.aqua', {y:120},{y:120}, 0)
-        //     .fromTo('.cloudmask', {y:345},{y:345}, 0)
-        //     .fromTo('.mask', {y:100},{y:100}, 0)
-        //     .fromTo('.irys', {x:0},{x:0}, 0)
-        //     .fromTo('.irys', {y:300},{y:300}, 0)
-        //     // gsap.globalTimeline.pause();
-        // }
-
-        // let mm = gsap.matchMedia();
-        
-
-        // mm.add("(min-width: 768px)", () => {
-
-        //     gsap.globalTimeline.play();
-        //         return () => { // make sure to clean up event listeners in the cleanup function!
-        //             gsap.matchMediaRefresh();
-        //           }
-        // });
-
-        // mm.add("(max-width: 767px", () => {
-        //     // mobile setup code here...
-        //     gsap.globalTimeline.pause();
-        //     // kill gsap
-        //     // gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
-        //     // gsap.set('.scrollDist', {width:'100%', height:'200%'})
-        //     // gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
-        //         // .fromTo('.aqua', {x:100},{x:140}, 0)
-        //         return () => { // make sure to clean up event listeners in the cleanup function!
-        //             gsap.matchMediaRefresh();
-        //           }
-        // });
+    
 
       
-       
         // gsap animation https://codepen.io/creativeocean/pen/qBbBLyB
         
     }, []);

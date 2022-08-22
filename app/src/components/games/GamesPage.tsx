@@ -11,7 +11,7 @@ export default function GamesPage(){
                 {/* <h1 className="heading text-4xl md:text-6xl font-bold font-sans md:leading-tight text-center text-cyan-600">
                     Test
                 </h1> */}
-            <AllPosts></AllPosts>
+            <AllPosts category='"NTHUGDC-Games"'></AllPosts>
 
         </div>
     );
