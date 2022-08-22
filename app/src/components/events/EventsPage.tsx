@@ -13,6 +13,7 @@ export default function EventsPage(){
                     Test
                 </h1> */}
             <AllPosts category='"NTHUGDC-Events"'></AllPosts>
+        
 
         </div>
     );

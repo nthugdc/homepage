@@ -32,6 +32,12 @@ export default function OnePost() {
         if (style === "blockquote") {
           return <blockquote>- {props.children}</blockquote>;
         }
+
+        // return React.createElement(
+        //   style,
+        //   { className: `break-words` },
+        //   props.children
+        // );
   
         // Fall back to default handling
         return BlockContent.defaultSerializers.types.block(props);
@@ -96,14 +102,14 @@ export default function OnePost() {
   if (!postData) return <div>Loading...</div>;
 
   return (
-    <div className = "container mx-auto px-6 md:px-6 lg:px-32 xl:px-48 bg-white grid  justify-items-center items-start  min-h-[1200px]">
+    <div className = "container mx-auto px-6 md:px-6 lg:px-32 xl:px-48 bg-white flex flex-col flex-wrap  justify-items-center items-start  min-h-[1200px]">
 
 
-      <h1 className="mt-36 text-6xl font-bold">{postData.title}</h1> {/*  Title */}
-      
-      <div className=" my-4 text-center"> {/*  Author */}
+      <h1 className="mt-24 md:mt-36 text-6xl md:text-7xl font-bold">{postData.title}</h1> {/*  Title */}
+      <h5 className="text-xl font-semibold mt-3">{postData._createdAt.substring(0,10).replaceAll("-", "/")}</h5>
+      <div className=" my-4 flex place-items-center"> {/*  Author */}
 
-        <img className="border-white border-2 rounded-full object-cover my-2 w-20"
+        <img className="border-white border-2 rounded-full object-cover my-1 w-20"
             src={postData.authorImage ? urlFor(postData.authorImage).width(100).url() : ""}
             alt=""
             onError={({ currentTarget }) => {
@@ -113,15 +119,15 @@ export default function OnePost() {
 
           />
           
-          <h5 className="font-semibold">{postData.name}</h5>
-          <h5 className="font-semibold my-1">{postData._createdAt.substring(0,10).replaceAll("-", "/")}</h5>
+          <h5 className="text-xl font-semibold ml-2 mr-5">{postData.name}</h5>
+          
         </div>
-
+              
         <div className="object-cover">  {/*  Main Image */}
           <img  className = "mb-5 w-[600px] border border-black rounded " src={postData.mainImage ? urlFor(postData.mainImage).url() : ""} alt="" />
         </div>
-      
-      <div className="w-[700px] pb-20 grid place-items-center"> {/*  Content */}
+        
+      <div className=" pb-20 break-words"> {/*  Content */}
         <BlockContent
           blocks={postData.body}
           projectId={sanityClient.clientConfig.projectId}
