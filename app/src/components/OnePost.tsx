@@ -72,6 +72,7 @@ export default function OnePost() {
     }
   };
 
+  
 
 
 
@@ -102,10 +103,10 @@ export default function OnePost() {
   if (!postData) return <div>Loading...</div>;
 
   return (
-    <div className = "container mx-auto px-6 md:px-6 lg:px-32 xl:px-48 bg-white flex flex-col flex-wrap  justify-items-center items-start  min-h-[1200px]">
+    <div className = "container mx-auto  px-6 md:px-6 lg:px-32 xl:px-48 bg-white flex flex-col flex-wrap  justify-items-center items-start  min-h-[1200px]">
 
 
-      <h1 className="mt-24 md:mt-36 text-6xl md:text-7xl font-bold">{postData.title}</h1> {/*  Title */}
+      <h1 className="mt-12 md:mt-20 lg:mt-28  text-6xl md:text-7xl font-bold">{postData.title}</h1> {/*  Title */}
       <h5 className="text-xl font-semibold mt-3">{postData._createdAt.substring(0,10).replaceAll("-", "/")}</h5>
       <div className=" my-4 flex place-items-center"> {/*  Author */}
 

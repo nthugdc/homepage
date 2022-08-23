@@ -37,8 +37,7 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&family=Roboto:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Montserrat:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@700&display=swap');
 body {
   /* font: 400 1em/1.5 "Neuton"; */
   background-image: url("components/images/3.jpg");
@@ -84,7 +83,7 @@ body {
 .anispan {
   text-align: center;
   font-weight: bold;
-  font-family:  Garamond , sans-serif;
+  font-family: 'Cormorant Garamond', Garamond , sans-serif;
   /* font-size: 130px; */
   letter-spacing: 0;
   /* padding: 0.25em 0 0.325em; */

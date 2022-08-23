@@ -5,6 +5,7 @@ import sanityClient from "../client";
 import {Card, Button} from "react-bootstrap";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { isConstructorDeclaration } from "typescript";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source : SanityImageSource) {
@@ -17,7 +18,11 @@ interface AllPostsProps {
 
 
 export default function AllPosts(props:AllPostsProps = {category: ""}) {
+
   const [allPostsData, setAllPosts] = useState<any>(null);
+  const [pageData, setPageData] = useState<any>(null);
+  const [page, setPage] = useState<number>(0);
+  const pagePerPost = 5;
 
   // preview content function
   const previewContent = (body: any) => {
@@ -31,7 +36,8 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
           if(newContent.length > 500){
             break;
           }else{
-            content = newContent;
+            content = newContent.substring(0, 150);
+
           }
         }
         
@@ -40,14 +46,27 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
     }
     return content;
   
+  };
+
+  const prevPage = () => {
+    if(page > 0){
+      setPage(page-1);
+    }
+  };
+
+  const nextPage = () =>{
+    if((page+1) * pagePerPost < allPostsData.length){ // 1*5 9
+      setPage(page+1);
+    }
   }
 
+  useEffect(()=>{
+    sanityClient.fetch(`*[_type == "article"]{...}`).then((data) => setAllPosts(data));
+
+  }, []);
 
   useEffect(() => {
     
-    
-    sanityClient.fetch(`*[_type == "article"]{...}`).then((data) => console.log(data))
- 
     //https://www.sanity.io/docs/query-cheat-sheet
     let categoryQuery = " in categories[]->title";
     if(props.category === ""){
@@ -57,7 +76,7 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
     console.log(props.category + categoryQuery);
     sanityClient
       .fetch(
-         `*[_type == "article" && ${props.category + categoryQuery}] | order(_createdAt desc){
+         `*[_type == "article" && ${props.category + categoryQuery}][${(page*pagePerPost).toString() + "..." + (page*pagePerPost+pagePerPost).toString()}] | order(_createdAt desc){
             title,
             slug,
             author,
@@ -89,10 +108,11 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
         //     }
         // }`
       )
-      .then((data) => setAllPosts(data))
-      
+      .then((data) => setPageData(data))
       .catch(console.error);
-  }, []);
+
+      
+  }, [page, props.category]);
 
   return (
     <div className="py-6 grid min-h-[800px] h-max justify-items-center items-start">
@@ -108,8 +128,8 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
       flex flex-col md:flex-row w-9/12 place-content-center  max-w-3xl
       */}
      
-        {allPostsData &&
-          allPostsData.map((post : SanityDocument, index : number) => (
+        {pageData &&
+          pageData.map((post : SanityDocument, index : number) => (
             
                 <Link className="flex flex-col md:flex-row w-full  border-stone-100 my-3 "  to={"/articles/" + post.slug.current} key={post.slug.current}>
 
@@ -129,7 +149,7 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
 
                     </div>
 
-                    <div className="preview flex-1 text-ellipsis  overflow-clip"> {/*  Right Part */}
+                    <div className="preview flex-1 text-ellipsis  overflow-hidden"> {/*  Right Part */}
                                 
                                   
                                 <div> {/*  Title */}
@@ -168,57 +188,19 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
                                 
                     </div>
             
-           
-                {/* <figure><img className="flex flex-col " src={post.mainImage ? post.mainImage.asset.url : ""} 
-                
-                                onError={({ currentTarget }) => {
-                                  currentTarget.onerror = null; // prevents looping
-                                  currentTarget.src="https://i.imgur.com/PINChNm.png";
-                                }}
-                                
-                                
-                                
-                                alt="https://i.imgur.com/PINChNm.png" /></figure> */}
                 </Link>
 
 
 
-
-//                 <Link className="mb-12 rounded-md border-red-600" to={"/articles/" + post.slug.current} key={post.slug.current}>
-
-// {/* object-cover max-w-[400px] h-[300px] */}
-//                 <figure><img className="flex flex-col " src={post.mainImage ? post.mainImage.asset.url : ""} 
-                
-//                 onError={({ currentTarget }) => {
-//                   currentTarget.onerror = null; // prevents looping
-//                   currentTarget.src="https://i.imgur.com/PINChNm.png";
-//                 }}
-                
-                
-                
-//                 alt="https://i.imgur.com/PINChNm.png" /></figure>
-//                 <div className="card-body">
-//                   <h2 className="card-title">{post.title}</h2>
-//                   <p>If a dog chews shoes whose shoes does he choose?</p>
-                  
-//                 </div>
-                              
-                
-                
-                
-//               </Link>
             
                 
           ))}
+
+          <div className="btn-group grid grid-cols-3 my-5">
+            <button className="btn btn-outline" onClick={prevPage}>Prev</button>
+            <button className="btn btn-outline">{page}</button>
+            <button className="btn btn-outline" onClick={nextPage}>Next</button>
+          </div>
     </div>
   );
 }
-
-
-/*                 
-                <span key={index}>
-                  <img src={post.mainImage ? post.mainImage.asset.url : ""} alt="" />
-                  <span>
-                    <h2>{post.title}</h2>
-                  </span>
-                </span> */
