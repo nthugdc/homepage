@@ -133,8 +133,6 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
             
                 <Link className="flex flex-col md:flex-row w-full  border-stone-100 my-3 "  to={"/articles/" + post.slug.current} key={post.slug.current}>
 
-
-
                     <div className="md:mr-4 mb-2 md:mb-0 md:w-4/12  h-full"> {/*  Left Part */}
                               <img className="object-cover h-56 border border-black  w-96 rounded mb-3 hover:opacity-70 transition duration-300 ease-in-out" src={post.mainImage ? post.mainImage.asset.url : ""} 
                 
@@ -156,6 +154,7 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
                                   <h2 className="text-2xl font-bold my-1 ">{post.title}</h2>
                                   
                                 </div>
+
                                 <div className="place-self-end flex item-center place-items-center  my-2 "> {/*  Author */}
 
                                   <img className="border-white border-2 rounded-full object-cover mr-2 w-9 "
@@ -181,10 +180,6 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
                                   </p>
                                 </div>
                                         
-                                <div> {/*  Tags */}
-                                
-                                </div>
-
                                 
                     </div>
             
@@ -196,9 +191,9 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
                 
           ))}
 
-          <div className="btn-group grid grid-cols-3 my-5">
+          <div className="btn-group grid grid-cols-3 my-5"> {/*  Pagination */}
             <button className="btn btn-outline" onClick={prevPage}>Prev</button>
-            <button className="btn btn-outline">{page}</button>
+            <button className="btn btn-outline">{page + 1}</button>
             <button className="btn btn-outline" onClick={nextPage}>Next</button>
           </div>
     </div>

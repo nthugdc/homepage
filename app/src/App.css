@@ -92,14 +92,18 @@ body {
   text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
   /* Clip Background Image */
   background: url(components/images/16.jpg) round;
-  transform: rotate(0deg);
   -webkit-background-clip: text;
   background-clip: text;
+  -moz-background-clip: text;
   /* Animate Background Image */
   -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -webkit-animation: AnimatedText 20s linear infinite;
   animation: AnimatedText 20s linear infinite;
+  -moz-animation: AnimatedText 20s linear infinite;
   /* Activate hardware acceleration for smoother animations */
   -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
 }
 
@@ -112,5 +116,22 @@ body {
   }
   100% {
     background-position: 1000% 0%;
+  }
+}
+@-webkit-keyframes AnimatedText {
+  0% {
+    -webkit-background-position: 0% 50%;
+  }
+  100% {
+    -webkit-background-position: 100% 50%;
+  }
+}
+
+@-moz-keyframes AnimatedText {
+  0% {
+    -moz-background-position: 0% 50%;
+  }
+  100% {
+    -moz-background-position: 100% 50%;
   }
 }

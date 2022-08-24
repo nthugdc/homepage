@@ -25,10 +25,9 @@ export default function HomePage() {
 
     useEffect(() => {
 
-
-
-
         let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+        // gsap animation https://codepen.io/creativeocean/pen/qBbBLyB
         gsap.set('.mainscroll', {position:'fixed', background:'#fff', width:'100%', height:'100%', top:0, left:'50%', x:'-50%'})
             gsap.set('.scrollDist', {width:'100%', height:'100%'})
             gsap.timeline({stagger: 0.5,scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:5}})
@@ -41,7 +40,7 @@ export default function HomePage() {
     
 
       
-        // gsap animation https://codepen.io/creativeocean/pen/qBbBLyB
+        
         
     }, []);
 

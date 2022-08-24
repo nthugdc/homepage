@@ -7,8 +7,6 @@ interface AnimatedTextProps {
 
 
 export default function AnimatedText(props:AnimatedTextProps){
-    // props: title
-
 
     return (
 

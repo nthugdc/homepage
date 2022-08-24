@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, BrowserRouter, Route, Routes } from "react-router-dom";
 import AboutPage from "./components/about/AboutPage";
 import ArticlesPage from "./components/articles/ArticlesPage";
 import EventsPage from "./components/events/EventsPage";
@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainNavbar />
       <Routes>
         <Route path="/" element={<HomePage />}/>
@@ -22,7 +22,7 @@ function App() {
         <Route path="/events" element={<EventsPage/>}/>
         <Route path="/games" element={<GamesPage/>}/>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 export default App;
