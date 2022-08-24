@@ -24,7 +24,7 @@ export default function OnePost() {
           const level = style.replace(/[^\d]/g, "");
           return React.createElement(
             style,
-            { className: `h${level} my-3` },
+            { className: `h${level} my-4 font-bold` },
             props.children
           );
         }
@@ -32,6 +32,8 @@ export default function OnePost() {
         if (style === "blockquote") {
           return <blockquote>- {props.children}</blockquote>;
         }
+
+      
 
         // return React.createElement(
         //   style,
@@ -53,9 +55,9 @@ export default function OnePost() {
     list: (props:any) =>
       
       (props.type === "bullet" ? (
-        <ul>{props.children}</ul>
+        <ul className="list-disc list-inside">{props.children}</ul>
       ) : (
-        <ol>{props.children}</ol>
+        <ol className="list-decimal list-inside">{props.children}</ol>
       )),
     listItem: (props:any) =>
       
@@ -68,7 +70,11 @@ export default function OnePost() {
       strong: (props:any) =>
          <strong>{props.children}</strong>,
       em: (props:any) =>  <em>{props.children}</em>,
-      code: (props:any) =>  <code>{props.children}</code>
+      code: (props:any) =>  <code>{props.children}</code>,
+      link: (props:any) => {
+        //console.log(props); 
+        return <a href={props.mark.href} className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">{props.children}</a>
+      },
     }
   };
 
