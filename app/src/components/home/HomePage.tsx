@@ -34,8 +34,8 @@ export default function HomePage() {
             .fromTo('.aqua', {x:110},{x:200}, 0)
             .fromTo('.aqua', {y:120},{y:-250}, 0)
             .fromTo('.mask', {y:400},{y:-800}, 0)
-            .fromTo('.irys', {x:-100},{x:-70}, 0)
-            .fromTo('.irys', {y:300},{y:-220}, 0)
+            .fromTo('.irys', {x:-200},{x:-100}, 0)
+            .fromTo('.irys', {y:300},{y:-250}, 0)
 
     
 
@@ -68,7 +68,7 @@ export default function HomePage() {
                         
                         <g clipPath="url(#m)">
                                
-                                <image className="irys" href="images/16.jpg" width="1300"/> 
+                                <image className="irys" href="images/16.jpg" width="1350"/> 
                                 <a href="https://discord.gg/pw5kc5jWFa" target="_blank" rel="noreferrer">
                                     <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center"  x="600" y="400" fill="#fff" href="https://discord.gg/pw5kc5jWFa">DISCORD</text>
                                     <text className="HomeTitleTC text-3xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y="460">JOIN US ♥</text>
