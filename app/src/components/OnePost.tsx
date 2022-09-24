@@ -113,7 +113,7 @@ export default function OnePost() {
 
 
       <h1 className="mt-12 md:mt-20 lg:mt-28  text-6xl md:text-7xl font-bold">{postData.title}</h1> {/*  Title */}
-      <h5 className="text-xl font-semibold mt-3">{postData._createdAt.substring(0,10).replaceAll("-", "/")}</h5>
+      {/* <h5 className="text-xl font-semibold mt-3">{postData._createdAt.substring(0,10).replaceAll("-", "/")}</h5> */}
       <div className=" my-4 flex place-items-center"> {/*  Author */}
 
         <img className="border-white border-2 rounded-full object-cover my-1 w-20"

@@ -34,7 +34,7 @@ export default function HomePage() {
             .fromTo('.aqua', {x:110},{x:200}, 0)
             .fromTo('.aqua', {y:120},{y:-250}, 0)
             .fromTo('.mask', {y:400},{y:-800}, 0)
-            .fromTo('.irys', {x:-100},{x:0}, 0)
+            .fromTo('.irys', {x:-100},{x:-70}, 0)
             .fromTo('.irys', {y:300},{y:-220}, 0)
 
     
@@ -57,13 +57,21 @@ export default function HomePage() {
                         
                         <image className="aqua" href="images/aqua_smaller.png"  width="1300" />
                         <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center" fill="#fff" x="50%" y="400">NTHUGDC</text>
-                        <text className="HomeTitleTC text-2xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y="460">清大遊創社</text>
-                 
+                        <text className="HomeTitleTC text-3xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y="460">清大遊創社</text>
+                        <rect id="arrowBtn" width="100" height="100" opacity="0" x="50%" y="500" style={{cursor:"pointer"}}/>
+                        {/* <g transform="translate(0, 500px)">
+                               
+                        <polyline transform="translate(0, 500px)" className="arrow"  fill="#fff" points="599,250 599,289 590,279 590,282 600,292 610,282 610,279 601,289 601,250" />
+
+                        </g> */}
+                        
+                        
                         <g clipPath="url(#m)">
                                
                                 <image className="irys" href="images/16.jpg" width="1300"/> 
                                 <a href="https://discord.gg/pw5kc5jWFa" target="_blank" rel="noreferrer">
-                                    <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center"  x="600" y="400" fill="#fff" href="https://discord.gg/pw5kc5jWFa">JOIN US ♥</text>
+                                    <text className="HomeTitle text-7xl md:text-8xl lg:text-[99px] text-center"  x="600" y="400" fill="#fff" href="https://discord.gg/pw5kc5jWFa">DISCORD</text>
+                                    <text className="HomeTitleTC text-3xl md:text-3xl lg:text-4xl text-center" fill="#fff" x="50%" y="460">JOIN US ♥</text>
                                 </a>
 
                         </g>

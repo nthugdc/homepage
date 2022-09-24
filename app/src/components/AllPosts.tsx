@@ -32,7 +32,7 @@ export default function AllPosts(props:AllPostsProps = {category: ""}) {
       if(body[i].children){
         if(body[i].children[0].text){
 
-          let newContent = content + body[i].children[0].text;
+          let newContent = content + body[i].children[0].text + " ";
           if(newContent.length > 500){
             break;
           }else{
